@@ -1,0 +1,13 @@
+Package: mfdata
+Type: Package
+Title: Creates missing and faulty data.
+Version: 0.1.0
+Authors@R: c(
+   person("Jerry", "Tucay", email = "tucayjerry3@gmail.com", role = c("aut", "cre")), 
+   person("Jong", "Woo", role= "aut"), 
+   person("Robin", "Donatelo" , role="aut"))
+Description: 
+    The package mfdata is used to incorporate missing and faulty data into your datasets. The package includes the ability to artificially create missing completely at random (mcar), missing at random(mar), and not completely at random(nmar) as well as faulty completely at random (fcar), faulty at random (far), and not faulty at random (nfar).
+License: BSD_3_clause
+Encoding: UTF-8
+LazyData: true
