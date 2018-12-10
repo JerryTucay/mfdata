@@ -1,5 +1,4 @@
 # we used p=.5 and q=.2
-# should i just set p=.5 and not let them choose
 # column = works with an input of c() and of course just a single value
 
 mar <- function(data, p, q, column){
