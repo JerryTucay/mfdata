@@ -10,8 +10,9 @@ mcar <- function(data, p, column = NULL){
       MDS[m.idx , i] <- NA
     }
   } else {
-    m.idx <- sample(x=1:NROW(data), size= p*NROW(data), replace=FALSE)
-    MDS[m.idx ,column] <- NA}
+    for(i in 1:length(column)){
+      m.idx <- sample(x=1:NROW(data), size= p*NROW(data), replace=FALSE)
+      MDS[m.idx ,column[i]] <- NA}}
   
   return(MDS)
 }

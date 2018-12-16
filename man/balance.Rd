@@ -1,11 +1,12 @@
-\name{mcar}
-\alias{mcar}
+\name{balance}
+\alias{balance}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-MCAR: Missing completely at random
+Balance Errors
 }
 \description{
-mcar() alows the user to forceibly input missing values (NA) that replicates being missing completly at random. This kind of missing data is missing by random chance.
+
+
 }
 \usage{
 mcar(data, p, column = NULL)

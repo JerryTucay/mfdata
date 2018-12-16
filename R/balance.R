@@ -1,6 +1,6 @@
 
 # Create faulty data
-BALANCE <- function(data, pi.){
+balance <- function(data, pi.){
   any_error <-  matrix(rep(0, 1000*3), nrow=1000, ncol=3)
   # size
   sigma <- diag(3)
@@ -16,3 +16,5 @@ BALANCE <- function(data, pi.){
   X[,2:4] <- data[,2:4] + error_frame
   return(X)
 }
+
+ifelse()

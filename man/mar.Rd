@@ -16,7 +16,7 @@ mar(data, p, q, column)
 the dataframe that you want to input NAs into
 }
   \item{p}{
-Value to compare the uniform to. A choice of .5 will make the expression Ui>p true half of the time.
+Value to compare the uniform to. A choice of .5 will make the expression Ui>p true about half of the time.
   }
   \item{q}{
 percent chance that the i'th value will be missing given Ui > p.
@@ -51,12 +51,17 @@ Definintly play around with p and q if you want to get a specfic amount of data 
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+## Inputs missing data in the first two columns of the data set df
 
-## The function is currently defined as
-function (x)
+df<- data.frame(x=rnorm(100, 10, 2), y=rpois(100,4), z=rbinom(100, 1, .4))
+df_missing<- mar(data = df, p = .5, q = .2, column = 1:2)
+sum(is.na(df_missing))/200
+
+## Inputs missing data into all of the columns in df2
+
+df2<- data.frame(x=rnorm(100, 10, 2), y=rpois(100,4), z=rbinom(100, 1, .4))
+df_missing2<- mcar(data = df, p = .5, q = .2)
+sum(is.na(df_missing2))/300
 {
   }
 }
