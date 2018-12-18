@@ -2,21 +2,21 @@
 \alias{balance}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Balance Errors
+Balance Error
 }
 \description{
-
+This kind of error occurs when a question's answer is related to the sum /differece of other questions answers. For example, some one who said they had sex three times in the past month and then answer that they have never had sex
 
 }
 \usage{
-mcar(data, p, column = NULL)
+balance(data, pi.)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{
 The data that you want to give missing values to
 }
-  \item{p}{
+  \item{pi.}{
   The percentage of data that you want to make missing.
   }
    \item{column = NULL}{

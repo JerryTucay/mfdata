@@ -5,8 +5,7 @@
 NMAR: Not missing at random
 }
 \description{
-nmar() alows the user to forceibly input missing values (NA) that replicates being not missing at random. This kind of missing depends strictly on the variable's value. If Xi > p\% of max value for Xi then there is q\% chance
-the data point is missing.}
+nmar() alows the user to forceibly input missing values (NA) that replicates being not missing at random. This kind of missing depends strictly on the variable's value. If Xi > p\% of max value for Xi then there is q\% chance the data point is missing.}
 \usage{
 nmar(data, p, q, column)
 }

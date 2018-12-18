@@ -2,8 +2,6 @@
 
 mcar <- function(data, p, column = NULL){
   MDS <- data
-  N <- NROW(data)
-  
   if (is.null(column)) {
     for (i in 1:ncol(MDS)) {
       m.idx <- sample(x=1:NROW(data), size= p*NROW(data), replace=FALSE)
