@@ -21,8 +21,9 @@ Percent of the the max value in the specified column
   \item{q}{
   Percent chance the Xi data point is missing given Xi> p\% of max
 }
-\item{column}{
-The columns from the data varaiable you want to input missing values into. For multiple colums use c() with the specifed column choices.
+\item{column = NULL}{
+ When NULL the function will run through your whole data set
+ Set a value to target specific columns
 }
 }
 \details{
@@ -51,24 +52,17 @@ Definintly play around with p and q if you want to get a specfic amount of data 
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+## Inputs missing data in all the columns in df
 
-## The function is currently defined as
-function (data, p = 0.7, q = 0.5)
-{
-    MDS <- data.frame(apply(data, 2, function(x) {
-        cutoff <- max(x) * p
-        x.na <- x
-        idx <- which(x > cutoff)
-        x.na[idx] <- ifelse(rbinom(n = length(idx), size = 1,
-            prob = q) == 1, NA, x.na[idx])
-        return(x.na)
-    }))
-    return(MDS)
-  }
-}
+df<- data.frame(x=rnorm(100, 10, 2), y=rpois(100,4), z=rbinom(100, 1, .4))
+df_missing<- nmar(df, .25)
+sum(is.na(df_missing))/300
+
+## Inputs missing data for columns one and three of df2
+
+df2<- data.frame(x=rnorm(100, 10, 2), y=rpois(100,4), z=rbinom(100, 1, .4))
+df_missing2<- nmar(df2, p=.5, q=.2 , c(1,3))
+sum(is.na(df_missing2))/200
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
