@@ -5,7 +5,7 @@
 Balance Error
 }
 \description{
-This kind of error occurs when a question's answer is related to the sum /differece of other questions answers. For example, some one who said they had sex three times in the past month and then answer that they have never had sex
+This kind of error occurs when a question's answer is related to the sum /differece of other questions answered. For example, some one who said they had sex three times in the past month and then answer that they have never had sex
 
 }
 \usage{
@@ -17,7 +17,7 @@ balance(data, pi.)
 The data that you want to give missing values to
 }
   \item{pi.}{
-  The percentage of data that you want to make missing.
+  
   }
    \item{column = NULL}{
   When NULL the function will run through your whole data set
