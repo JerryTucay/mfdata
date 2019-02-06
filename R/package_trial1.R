@@ -15,5 +15,5 @@ mcar <- function(data, p, column = NULL){
   amiss<-ggplot(MDS, aes(x=norm))+ geom_histogram()
   
   output<- list(MDS,bmiss,amiss)
-  return(MDS)
+  return(output)
 }
