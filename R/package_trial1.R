@@ -11,5 +11,9 @@ mcar <- function(data, p, column = NULL){
     for(i in 1:length(column)){
       m.idx <- sample(x=1:NROW(data), size= p*NROW(data), replace=FALSE)
       MDS[m.idx ,column[i]] <- NA}}
+  bmiss<-ggplot(data, aes(x=norm))+ geom_histogram()
+  amiss<-ggplot(MDS, aes(x=norm))+ geom_histogram()
+  
+  output<- list(MDS,bmiss,amiss)
   return(MDS)
 }
