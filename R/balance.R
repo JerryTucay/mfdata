@@ -16,5 +16,3 @@ balance <- function(data, pi.){
   X[,2:4] <- data[,2:4] + error_frame
   return(X)
 }
-
-ifelse()
