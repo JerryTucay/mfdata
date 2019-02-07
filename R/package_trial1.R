@@ -13,7 +13,8 @@ mcar <- function(data, p, column = NULL){
       MDS[m.idx ,column[i]] <- NA}}
   bmiss<-ggplot(data, aes(x=norm))+ geom_histogram()
   amiss<-ggplot(MDS, aes(x=norm))+ geom_histogram()
+  percent_miss<-gg_miss_var(MDS, show_pct = T)
   
-  output<- list(MDS,bmiss,amiss)
+  output<- list(MDS, bmiss, amiss, percent_miss)
   return(output)
 }
