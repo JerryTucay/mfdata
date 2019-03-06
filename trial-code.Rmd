@@ -1,0 +1,126 @@
+---
+title: "test file"
+author: "Jerry Tucay"
+date: "February 5, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(mfdata)
+```
+
+```{r}
+pois<-round(rpois(1000,2), 2)
+norm<-round(rnorm(1000,5), 0)
+gamm<-round(rgamma(1000, 3),0)
+
+names(df)
+
+median(pois)
+
+df<- data.frame(gamm=as.integer(gamm), norm, pois)
+
+
+df2<-mcar(df, .5)
+df3<-data.df2[1]
+```
+
+
+```{r}
+
+ggplot(df, aes(x=norm))+ geom_histogram(fill="green3")
+
+y<-ggplot(df2, aes(x=norm))+ geom_histogram()
+
+library(ggplot2)
+library(naniar)
+gg_miss_var(df2[[1]], show_pct = T)
+
+my_list<-list(df,df2,x,y)
+```
+
+
+
+```{r}
+
+LOGIC <- function(data, phi){
+  FD <- data
+  e2 <- rbinom(NROW(FD), 1, phi)
+  FD$y4[e2 == 1] <- 0
+  FD$y5[e2 == 1] <- 1
+  return(FD)
+}
+
+
+```
+
+```{r}
+
+
+LOGIC <- function(data, phi, var_choice){
+  FD <- data
+  e2 <- rbinom(NROW(FD), 1, phi)
+  
+  var_comma <- str_split(var_choice, ", ")
+  
+  for(i in 1:length(var_choice))
+  {
+    var_equal <- str_split(var_comma[[i]], " = ")
+    var1<-which(colnames(df) == var_equal[[1]][1] )
+    var2<-which(colnames(df) == var_equal[[2]][1] )
+    
+    FD[,var1][e2 == 1] <- var_equal[[1]][2]
+    FD[,var2][e2 == 1] <- var_equal[[2]][2]
+    
+    type1<- class(data[ ,var1])
+    type2<- class(data[ ,var2])
+        
+    if(type1 == "integer")
+    {
+      FD[,var1]<- as.integer(as.character(FD[ ,var1]))
+    }else 
+    if(type1 == "numeric")
+    {
+      FD[,var1]<- as.numeric(as.character(FD[ , var1]))
+    }
+
+    if(type2 == "integer")
+    {
+      FD[,var1]<- as.integer(as.character(FD[ ,var1]))
+    }else 
+    if(type2 == "numeric")
+    {
+      FD[,var1]<- as.numeric(as.character(FD[ , var1]))
+    }
+    
+  }
+  return(FD)
+}
+median(norm)
+which(colnames(df)== "norm")
+
+error<-("gamm = 100, norm = 100")
+
+log_df<-LOGIC(df, .5, error )
+typeof(log_df[,3])
+str(log_df)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

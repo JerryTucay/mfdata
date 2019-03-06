@@ -1,44 +1,47 @@
 
 
 
-LOGIC <- function(data, phi){
+ # LOGIC <- function(data, phi){
+ #FD <- data
+ #e2 <- rbinom(NROW(FD), 1, phi)
+ #FD$y4[e2 == 1] <- 0
+ #FD$y5[e2 == 1] <- 1
+ #return(FD)
+ #}
+
+
+LOGIC <- function(data, phi, var_choice){
   FD <- data
   e2 <- rbinom(NROW(FD), 1, phi)
-  FD$y4[e2 == 1] <- 0
-  FD$y5[e2 == 1] <- 1
+  
+  var_comma <- str_split(var_choice, ", ")
+  
+  for(i in 1:length(var_choice))
+  {
+    var_equal <- str_split(var_comma[[i]], " = ")
+    var1<-which(colnames(df) == var_equal[[1]][1] )
+    var2<-which(colnames(df) == var_equal[[2]][1] )
+    
+    FD[,var1][e2 == 1] <- var_equal[[1]][2]
+    FD[,var2][e2 == 1] <- var_equal[[2]][2]
+    
+    type1<- class(data[ ,var1])
+    type2<- class(data[ ,var2])
+    
+    if(type1 == "integer")
+    {
+        FD[,var1]<- as.integer(as.character(FD[ ,var1]))
+    }else     if(type1 == "numeric")
+    {
+        FD[,var1]<- as.numeric(as.character(FD[ , var1]))
+    }else     if(type2 == "integer")
+    {
+        FD[,var1]<- as.integer(as.character(FD[ ,var1]))
+    }else   if(type2 == "numeric")
+    {
+        FD[,var1]<- as.numeric(as.character(FD[ , var1]))
+    }
+    
+  }
   return(FD)
 }
-
-
-string <- c("var 1 = B, var 2 = D", "var 3 = 2, var 4 = 10","var 3 = 2, var 4 = 10")
-string
-
-string2<-str_split(string, ",")
-string2
-
-trimws(string2[[1]])
-
-vec<- rep(NA, 2)
-mylist<- rep(list(vec), 2*length(string2))
-
-
-
-  var<-str_split(string2[[1]], "=")
-  trimws(var[[1]])
-  
-
-
-
-
-string3 <- rep(NA, 4)
-for(i in 1:length(string2))
-{
-  
-    mylist[[]] <- str_split(string2[[2]], " = ")
-
-}
-
-string3
-
-string3[[1]][2]
-length(string2)

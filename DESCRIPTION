@@ -10,7 +10,8 @@ Description:
     The package mfdata is used to incorporate missing and faulty data into your datasets. The package includes the ability to artificially create missing completely at random (mcar), missing at random(mar), and not completely at random(nmar) as well as faulty completely at random (fcar), faulty at random (far), and not faulty at random (nfar).
 Depends:
     ggplot2,
-    naniar
+    naniar,
+    stringr
 License: BSD_3_clause
 Encoding: UTF-8
 LazyData: true
