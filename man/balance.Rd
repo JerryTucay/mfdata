@@ -5,7 +5,7 @@
 Balance Error
 }
 \description{
-This kind of error occurs when a question's answer is related to the sum /differece of other questions answered. For example, some one who said they had sex three times in the past month and then answer that they have never had sex
+This kind of error occurs when a question's answer is related to the sum /differece of other questions answered. For example, Profit 
 
 }
 \usage{
@@ -17,11 +17,11 @@ balance(data, pi.)
 The data that you want to give missing values to
 }
   \item{pi.}{
-  
+  Probability of a balance error occuring in the ith observation.
+  Enter as a matrix of probabilities
   }
-   \item{column = NULL}{
-  When NULL the function will run through your whole data set
-  Set a value to target specific columns
+   \item{choice}{
+  Enter in the three columns you want to change
   }
 }
 \details{
@@ -51,17 +51,7 @@ The data that you want to give missing values to
 }
 \examples{
 
-## Inputs missing data in the first two colums of the data set df
 
-df<- data.frame(x=rnorm(100, 10, 2), y=rpois(100,4), z=rbinom(100, 1, .4))
-df_missing<- mcar_test(df, .25, 1:2)
-sum(is.na(df_missing))/200
-
-## Inputs missing data into all of the columns in df2
-
-df2<- data.frame(x=rnorm(100, 10, 2), y=rpois(100,4), z=rbinom(100, 1, .4))
-df_missing2<- mcar_test(df2, .25)
-sum(is.na(df_missing2))/300
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

@@ -21,6 +21,8 @@ median(pois)
 
 df<- data.frame(gamm=as.integer(gamm), norm, pois)
 
+nrow(df)
+ncol()
 
 df2<-mcar(df, .5)
 df3<-data.df2[1]

@@ -1,7 +1,7 @@
 Package: mfdata
 Type: Package
 Title: Creates missing and faulty data.
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: c(
    person("Jerry", "Tucay", email = "tucayjerry3@gmail.com", role = c("aut", "cre")), 
    person("Jongwoo", "Choi", role= "aut"), 
