@@ -5,7 +5,7 @@
 Balance Error
 }
 \description{
-This kind of error occurs when a question's answer is related to the sum /differece of other questions answered. For example, Profit 
+This kind of error occurs when a question's answer is related to the sum /differece of other questions answered. For example, Profit can be estimated by the difference between money accuared and cost.
 
 }
 \usage{
