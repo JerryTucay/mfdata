@@ -14,7 +14,7 @@ nmar <- function(data, p, q, column = NULL){
     
     densplot <-ggplot(long, aes(x=value, fill = ds)) + 
       geom_density(alpha=.4) + 
-      facet_wrap(~variable, ncol=2, scales = "free_x")
+      facet_wrap(~variable, ncol=2, scales = "free")
     
     misspercplot <- gg_miss_var(MDS, show_pct = T)
   }else{
